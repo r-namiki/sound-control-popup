@@ -1,6 +1,6 @@
-# audio-popup
+# sound-control-popup
 
-`audio-popup` is a small GTK4 + layer-shell popup for Wayland audio controls.
+`sound-control-popup` is a small GTK4 + layer-shell popup for Wayland audio controls.
 
 It targets PipeWire environments that expose `wpctl` and `pactl`, and is intended for setups that want a lightweight popup near Waybar instead of a full mixer window.
 
@@ -51,7 +51,7 @@ cargo install --path .
 cargo run --release
 ```
 
-The app uses the GTK application id `io.github.rikunamiki.audio_popup` and the layer-shell namespace `io.github.rikunamiki.audio-popup`. It opens as an overlay near the top-right edge of the screen.
+The app uses the GTK application id `io.github.rikunamiki.sound_control_popup` and the layer-shell namespace `io.github.rikunamiki.sound-control-popup`. It opens as an overlay near the top-right edge of the screen.
 
 ## Notes
 

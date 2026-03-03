@@ -10,7 +10,7 @@ use gtk4::Application;
 use gtk4::glib;
 use gtk4::prelude::{ApplicationExt, ApplicationExtManual, GtkWindowExt, WidgetExt};
 
-const APP_ID: &str = "io.github.rikunamiki.audio_popup";
+const APP_ID: &str = "io.github.rikunamiki.sound_control_popup";
 
 fn main() -> glib::ExitCode {
     let app = Application::builder().application_id(APP_ID).build();

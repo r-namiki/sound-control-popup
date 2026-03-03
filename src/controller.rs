@@ -121,7 +121,7 @@ fn run_command_async<F>(
                     flag.store(false, Ordering::Relaxed);
                 }
                 if let Err(err) = result {
-                    eprintln!("audio-popup: {err}");
+                    eprintln!("sound-control-popup: {err}");
                 }
                 if refresh_devices {
                     refresh_devices_async(widgets.clone());

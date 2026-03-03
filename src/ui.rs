@@ -11,7 +11,7 @@ use std::process::Command;
 use std::rc::Rc;
 use std::sync::atomic::AtomicBool;
 
-const LAYER_SHELL_NAMESPACE: &str = "io.github.rikunamiki.audio-popup";
+const LAYER_SHELL_NAMESPACE: &str = "io.github.rikunamiki.sound-control-popup";
 
 #[derive(Clone)]
 pub struct SectionWidgets {
@@ -45,7 +45,7 @@ pub struct PopupView {
 pub fn build(app: &Application) -> PopupView {
     let window = ApplicationWindow::builder()
         .application(app)
-        .title("Audio Popup")
+        .title("Sound Control Popup")
         .default_width(440)
         .default_height(330)
         .decorated(false)
@@ -210,7 +210,7 @@ fn build_footer() -> GtkBox {
         .build();
     pavu_button.connect_clicked(|_| {
         if let Err(err) = Command::new("pavucontrol").spawn() {
-            eprintln!("audio-popup: failed to launch pavucontrol: {err}");
+            eprintln!("sound-control-popup: failed to launch pavucontrol: {err}");
         }
     });
 
