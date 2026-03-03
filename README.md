@@ -6,7 +6,7 @@ It targets PipeWire environments that expose `wpctl` and `pactl`, and is intende
 
 ## Screenshot
 
-![Illustrative preview](assets/screenshot.svg)
+![Screenshot](assets/screenshot.png)
 
 ## Features
 
