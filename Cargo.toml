@@ -1,0 +1,14 @@
+[package]
+name = "audio-popup"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "A GTK4 layer-shell audio popup for Wayland with PipeWire controls"
+readme = "README.md"
+license = "MIT-0"
+keywords = ["gtk4", "wayland", "pipewire", "audio", "utility"]
+categories = ["gui", "multimedia"]
+
+[dependencies]
+gtk4 = "0.9"
+gtk4-layer-shell = "0.4"
