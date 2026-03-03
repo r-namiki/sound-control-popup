@@ -11,10 +11,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install GTK4 development packages
+      - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libgtk-4-dev
+          sudo apt-get install -y git meson ninja-build pkg-config libwayland-dev wayland-protocols libgtk-4-dev
+
+      - name: Build gtk4-layer-shell from source
+        run: |
+          git clone --depth 1 https://github.com/wmww/gtk4-layer-shell /tmp/gtk4-layer-shell
+          meson setup /tmp/gtk4-layer-shell/build /tmp/gtk4-layer-shell \
+            -Dexamples=false \
+            -Ddocs=false \
+            -Dtests=false \
+            -Dintrospection=false \
+            -Dvapi=false
+          meson compile -C /tmp/gtk4-layer-shell/build
+          sudo meson install -C /tmp/gtk4-layer-shell/build
+          sudo ldconfig
+
+      - name: Export pkg-config search path
+        run: |
+          echo "PKG_CONFIG_PATH=/usr/local/lib/x86_64-linux-gnu/pkgconfig:/usr/local/lib/pkgconfig:${PKG_CONFIG_PATH:-}" >> "$GITHUB_ENV"
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
